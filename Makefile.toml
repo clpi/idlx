@@ -1,0 +1,36 @@
+[config]
+init_task = "build"
+# load_script = ["test/Makefile.toml",]
+end_task = "run"
+
+[tasks.all]
+dependencies = ["clean", "build", "test", "buildc", "buildcc","run",]
+
+[tasks.ci]
+condition = { env = { "TRAVIS" = "true" }, platforms = ["mac", "linux"], channels=["stable"]}
+
+[tasks.buildc]
+script = ["cd c && make"]
+
+[tasks.buildcc]
+script = ["cd cc && make"]
+
+[tasks.init]
+command = "cargo"
+args = ["clean"]
+
+[tasks.run]
+command = "cargo"
+args = ["run"]
+
+[tasks.build]
+command = "cargo"
+args = ["build"]
+
+[tasks.add]
+command = "cargo"
+args = ["add"]
+
+[tasks.end]
+command = "cargo"
+args = ["test"]

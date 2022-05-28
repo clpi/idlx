@@ -1,0 +1,13 @@
+[tasks.works_windows]
+condition = { platforms = ["windows"], channels = ["stable"]}
+script = ['echo',  '"On platform \x1b[32;1mWindows\x1b[0m']
+
+[tasks.works_linux]
+condition = { platforms = ["linux"], channels = ["stable"]}
+script = ['echo','"On platform \x1b[32;1mMac\x1b[0m'
+]
+
+[tasks.works_mac]
+condition = { platforms = ["mac"], channels = ["stable"]}
+script = ['echo', '"On platform \x1b[32;1mLinux\x1b[0m']
+

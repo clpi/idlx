@@ -1,0 +1,20 @@
+[package]
+name = "ix-ast"
+version = "0.1.0"
+edition = "2021"
+build = "build.rs"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[badges]
+maintenance = { status = "active" }
+
+[dependencies]
+
+[dependencies.lalrpop]
+features = ["lexer"]
+version = "^0.19.8"
+
+im-rc = { version = "15.1.0", features = ["rayon", "refpool", "serde", "debug", "pool"] }
+petgraph = { version = "0.6.1", features = ["generate", "serde", "serde_derive", "all"] }
+serde = { features = ["derive"], version = "1.0.137"}

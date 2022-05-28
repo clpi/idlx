@@ -1,0 +1,7 @@
+[alias]
+r = "run --bin idlx --package idlx"
+R = "run --bin idlx --package idlx --release"
+b = "build --bin idlx --package idlx --debug"
+B = "build --bin idlx --package idlx --release"
+a = "add"
+m = "make"

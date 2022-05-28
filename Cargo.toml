@@ -1,0 +1,72 @@
+[workspace]
+members = [
+    "./lib/*",
+    "./pkg/*",
+    "./lib/ix-data",
+    "./lib/ix-compile",
+    "./lib/ix-ast",
+    "./lib/ix-gen",
+    "./pkg/ix-lsp",
+    "./pkg/ix-srv",
+]
+default-members = [
+    "./pkg/ix-vm",
+    "./pkg/ix-lsp",
+    "./pkg/ix-srv",
+]
+exclude = [
+]
+
+[package]
+name = "idlx"
+version = "0.1.0"
+documentation = "https://doc.rs/idlex"
+homepage="clp.is/idlx"
+repository="github.com/clpi/idlx"
+readme="README.md"
+license="MIT"
+authors=["CLP clp@clp.is"]
+build = "rs/build.rs"
+categories = ["parser-implementations"]
+keywords = ["lang", "llvm"]
+edition = "2021"
+publish = true
+exclude = ["scripts/deploy", "pkg/srv/.env.dev", "pkg/srv/.env.prod"]
+include = ["c", "cc", "Makefile.toml", "Makefile"]
+autobins = true
+autotests = true
+autobenches = true
+description = "A scripting Lang in LLVM"
+autoexamples = true
+rust-version = "1.63"
+default-run = "idlx"
+
+[features]
+default = []
+std = []
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+path = "rs/lib.rs"
+name = "idlxl"
+doc = true
+doctest=false
+
+[[bin]]
+name = "idlx"
+path = "rs/bin/idlx.rs"
+
+
+[dependencies]
+serde = { features = ["derive"]}
+
+[dev-dependencies]
+color-eyre = "0.6.1"
+
+[dependencies.tokio]
+version = "1.18.2"
+features = ["full"]
+
+[build-dependencies]
+cc = "1.0.73"
